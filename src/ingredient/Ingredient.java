@@ -1,5 +1,7 @@
 package ingredient;
 
+import java.util.UUID;
+
 public class Ingredient {
     private String id;
     private String name;
@@ -7,7 +9,7 @@ public class Ingredient {
     private float price;
 
     public Ingredient(String id, String name, int weight, float price) {
-        this.id = id;
+        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.weight = weight;
         this.price = price;
@@ -15,10 +17,6 @@ public class Ingredient {
 
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getName() {
