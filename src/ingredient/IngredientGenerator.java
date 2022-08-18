@@ -21,7 +21,7 @@ public class IngredientGenerator {
     };
     private static Random rnd = new Random();
 
-    public Ingredient generate() {
+    static public Ingredient generate() {
         return new Ingredient(UUID.randomUUID().toString(),
                 IngredientNames[rnd.nextInt(IngredientNames.length)],
                 rnd.nextInt(100) + 5,
