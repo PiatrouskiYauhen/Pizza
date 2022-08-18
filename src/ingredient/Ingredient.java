@@ -5,8 +5,8 @@ import java.util.UUID;
 public class Ingredient {
     private String id;
     private String name;
-    private int weight;
-    private float price;
+    private double weight;
+    private double price;
 
     public Ingredient(String id, String name, int weight, float price) {
         this.id = UUID.randomUUID().toString();
@@ -27,7 +27,7 @@ public class Ingredient {
         this.name = name;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 
@@ -35,7 +35,7 @@ public class Ingredient {
         this.weight = weight;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
