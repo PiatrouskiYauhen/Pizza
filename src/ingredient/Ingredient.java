@@ -13,7 +13,7 @@ public class Ingredient {
     }
 
     public Ingredient(String id, String name, int weight, double price) {
-        this.id = UUID.randomUUID().toString();
+        this.id = id;
         this.name = name;
         this.weight = weight;
         this.price = price;
