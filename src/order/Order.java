@@ -9,14 +9,14 @@ public class Order {
     private final LocalDate date;
     private final String clientId;
     private OrderStatus orderStatus;
-    private Map<String, Double> recipes;
+    private Map<String, Byte> recipes;
     private double price;
 
-    public Order(LocalDate date, String clientId, OrderStatus orderStatus, Map<String, Double> recipes) {
+    public Order(LocalDate date, String clientId, OrderStatus orderStatus, Map<String, Byte> recipes) {
         this(UUID.randomUUID().toString(), date, clientId, orderStatus, recipes);
     }
 
-    public Order(String id, LocalDate date, String clientId, OrderStatus orderStatus, Map<String, Double> recipes) {
+    public Order(String id, LocalDate date, String clientId, OrderStatus orderStatus, Map<String, Byte> recipes) {
         this.id = id;
         this.date = date;
         this.clientId = clientId;
@@ -44,7 +44,7 @@ public class Order {
         this.orderStatus = orderStatus;
     }
 
-    public Map<String, Double> getRecipes() {
+    public Map<String, Byte> getRecipes() {
         return recipes;
     }
 
