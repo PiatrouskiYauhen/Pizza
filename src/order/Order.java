@@ -12,13 +12,9 @@ public class Order {
     private Map<String, Byte> recipes;
     private double price;
 
-    public Order(LocalDate date, String clientId, OrderStatus orderStatus, Map<String, Byte> recipes) {
-        this(UUID.randomUUID().toString(), date, clientId, orderStatus, recipes);
-    }
-
-    public Order(String id, LocalDate date, String clientId, OrderStatus orderStatus, Map<String, Byte> recipes) {
-        this.id = id;
-        this.date = date;
+    public Order(String clientId, OrderStatus orderStatus, Map<String, Byte> recipes) {
+        this.id = UUID.randomUUID().toString();
+        this.date = LocalDate.now();
         this.clientId = clientId;
         this.orderStatus = orderStatus;
         this.recipes = recipes;
