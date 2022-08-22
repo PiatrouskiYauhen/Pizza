@@ -46,4 +46,14 @@ public class Ingredient {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return "Ingredient{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", weight=" + weight +
+                ", price=" + price +
+                '}';
+    }
 }
