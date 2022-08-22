@@ -1,18 +1,18 @@
 package client;
 
 public class Client {
-    private String id;
+    private String idClient;
     private String name;
     private String phoneNumber;
 
-    public Client(String id, String name, String phoneNumber) {
-        this.id = id;
+    public Client(String idClient, String name, String phoneNumber) {
+        this.idClient = idClient;
         this.name = name;
         this.phoneNumber = phoneNumber;
     }
 
-    public String getId() {
-        return id;
+    public String getIdClient() {
+        return idClient;
     }
 
     public String getName() {
