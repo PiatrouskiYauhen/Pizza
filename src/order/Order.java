@@ -12,11 +12,11 @@ public class Order {
     private Map<String, Byte> recipes;
     private double price;
 
-    public Order(String clientId, OrderStatus orderStatus, Map<String, Byte> recipes) {
+    public Order(String clientId, Map<String, Byte> recipes) {
         this.id = UUID.randomUUID().toString();
         this.date = LocalDate.now();
         this.clientId = clientId;
-        this.orderStatus = orderStatus;
+        this.orderStatus = OrderStatus.NEW;
         this.recipes = recipes;
     }
 
