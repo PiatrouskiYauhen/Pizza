@@ -1,6 +1,7 @@
 package client;
 
 import java.util.Random;
+import java.util.UUID;
 
 public class ClientGenerator {
     private final static String[] firstNames = {
@@ -169,7 +170,6 @@ public class ClientGenerator {
             "Warren",
             "William"
     };
-
     private static final String[] lastNames = {
             "Abraham",
             "Allan",
@@ -324,12 +324,12 @@ public class ClientGenerator {
 
     private static Random rnd = new Random();
 
-    public static Client generate()
-    {
-        String firstName = firstNames[rnd.nextInt(firstNames.length)];
-        String lastName = lastNames[rnd.nextInt(lastNames.length)];
-        String name = firstName + " " + lastName;
-        return new Client(name);
+    public static Client generate() {
+        String id = UUID.randomUUID().toString();
+        String name = firstNames[rnd.nextInt(firstNames.length)] + " " + lastNames[rnd.nextInt(lastNames.length)];
+        Byte[] code = {25, 29, 33, 44};
+        String phoneNumber = "+375" + " " + code[rnd.nextInt(3)] + " " + (100 + rnd.nextInt(900)) + " " + (10 + rnd.nextInt(90)) + " " + (10 + rnd.nextInt(90));
+        return new Client(id, name, phoneNumber);
     }
 
 }
