@@ -4,19 +4,19 @@ import java.util.Map;
 import java.util.UUID;
 
 public class Recipe {
-    private String idRecipe;
-    private String nameRecipe;
+    private String id;
+    private String name;
     private Map<String, Integer> mapOfRecipe;
-    private Integer costOfRecipe;
+    private Integer cost;
 
-    public String getIdRecipe() {return idRecipe;}
-    public String getNameRecipe() {return nameRecipe;}
+    public String getId() {return id;}
+    public String getName() {return name;}
     public Map<String, Integer> getMapOfRecipe() {return mapOfRecipe;}
-    public Integer getPriceOfRecipe() {return costOfRecipe;}
+    public Integer getCost() {return cost;}
 
     public Recipe(String nameRecipe) {
-        this.idRecipe = UUID.randomUUID().toString();
-        this.nameRecipe = nameRecipe;
+        this.id = UUID.randomUUID().toString();
+        this.name = nameRecipe;
 
         //здесь будет МАП <Имя_ингридиента, вес>, когда будет склад со в семи ингридиентами
         //this.costOfRecipe = "метод формирования стоимости рецепта"
