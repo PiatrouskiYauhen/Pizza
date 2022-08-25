@@ -26,7 +26,6 @@ public class IngredientGenerator {
 
         for (String ingredientName : ingredientNames) {
             Ingredient ingredient = new Ingredient(ingredientName, generateWeight(), generatePrice());
-
             ingredients.put(ingredient.getId(), ingredient);
         }
 

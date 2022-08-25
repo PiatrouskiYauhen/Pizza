@@ -7,12 +7,14 @@ public class Ingredient {
     private String name;
     private int weight;
     private double price;
+    private Measure measure;
 
     public Ingredient(String name, int weight, double price) {
         this.id = UUID.randomUUID().toString();
         this.name = name;
         this.weight = weight;
         this.price = price;
+        this.measure = Measure.GRAM;
     }
 
     public String getId() {
@@ -43,13 +45,23 @@ public class Ingredient {
         this.price = price;
     }
 
+    public Measure getMeasure() {
+        return measure;
+    }
+
+    public void setMeasure(Measure measure) {
+        this.measure = measure;
+    }
+
     @Override
     public String toString() {
         return "Ingredient{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", weight=" + weight +
+                ", weight=" + weight + measure.name +
                 ", price=" + price +
                 '}';
     }
+
+
 }
