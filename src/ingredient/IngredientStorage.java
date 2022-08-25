@@ -1,20 +1,21 @@
 package ingredient;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 public class IngredientStorage {
-    private ArrayList <Ingredient> ingredientList = new ArrayList<>();
-
-    public List<Ingredient> getIngredientList() {
-        return ingredientList;
-    }
-
-    public void setIngredientList(ArrayList<Ingredient> ingredientList) {
-        this.ingredientList = ingredientList;
-    }
+    private HashMap<String, Ingredient> ingredientList;
 
     public IngredientStorage() {
         this.ingredientList = IngredientGenerator.generateList();
+    }
+
+    public Ingredient getById(String id) throws Exception {
+        Ingredient ingredient = this.ingredientList.get(id);
+
+        if (ingredient == null) {
+            throw new Exception("Ingredient with id " + id + " not found.");
+        }
+
+        return ingredient;
     }
 }

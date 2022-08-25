@@ -1,12 +1,10 @@
 package ingredient;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 import java.util.Random;
-import java.util.UUID;
 
 public class IngredientGenerator {
-    private final static String[] ingredientNames = {
+    private static final String[] ingredientNames = {
             "Flour",
             "Yeasts",
             "Salt",
@@ -21,24 +19,29 @@ public class IngredientGenerator {
             "Pepper",
             "Champignons"
     };
-    private static Random rnd = new Random();
+    private static final Random rnd = new Random();
 
     static public Ingredient generate() {
-        return new Ingredient(UUID.randomUUID().toString(),
-                ingredientNames[rnd.nextInt(ingredientNames.length)],
-                rnd.nextInt(100) + 5,
-                rnd.nextInt(100) + 1);
+        return new Ingredient(ingredientNames[rnd.nextInt(ingredientNames.length)], generateWeight(), generatePrice());
     }
 
-    static public ArrayList<Ingredient> generateList() {
-        ArrayList<Ingredient> ingredientList = new ArrayList<>();
+    static public HashMap<String, Ingredient> generateList() {
+        HashMap<String, Ingredient> ingredients = new HashMap<>();
 
         for (String ingredientName : ingredientNames) {
-            ingredientList.add(new Ingredient(ingredientName,
-                    rnd.nextInt(100) * 100 + 500,
-                    (int)((rnd.nextDouble(100) + 1) * 100) / 100d));
+            Ingredient ingredient = new Ingredient(ingredientName, generateWeight(), generatePrice());
+
+            ingredients.put(ingredient.getId(), ingredient);
         }
 
-        return ingredientList;
+        return ingredients;
+    }
+
+    static private int generateWeight() {
+        return rnd.nextInt(100) * 100 + 500;
+    }
+
+    static private double generatePrice() {
+        return (int)((rnd.nextDouble(100) + 1) * 100) / 100d;
     }
 }
