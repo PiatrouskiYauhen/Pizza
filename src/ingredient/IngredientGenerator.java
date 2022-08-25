@@ -21,11 +21,7 @@ public class IngredientGenerator {
     };
     private static final Random rnd = new Random();
 
-    static public Ingredient generate() {
-        return new Ingredient(ingredientNames[rnd.nextInt(ingredientNames.length)], generateWeight(), generatePrice());
-    }
-
-    static public HashMap<String, Ingredient> generateList() {
+    static public HashMap<String, Ingredient> generateMap() {
         HashMap<String, Ingredient> ingredients = new HashMap<>();
 
         for (String ingredientName : ingredientNames) {
