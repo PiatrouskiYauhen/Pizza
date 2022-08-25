@@ -3,12 +3,12 @@ package ingredient;
 import java.util.UUID;
 
 public class Ingredient {
-    private String id;
+    private final String id;
     private String name;
     private int weight;
-    private float price;
+    private double price;
 
-    public Ingredient(String id, String name, int weight, float price) {
+    public Ingredient(String name, int weight, double price) {
         this.id = UUID.randomUUID().toString();
         this.name = name;
         this.weight = weight;
@@ -35,11 +35,21 @@ public class Ingredient {
         this.weight = weight;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Ingredient{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", weight=" + weight +
+                ", price=" + price +
+                '}';
     }
 }
