@@ -28,19 +28,19 @@ public class Recipe {
         return cost;
     }
 
-    public Recipe(String nameRecipe, Map<String, Integer> ingredientMap) {
+    public Recipe(String name, Map<String, Integer> ingredientMap) {
         this.id = UUID.randomUUID().toString();
-        this.name = nameRecipe;
+        this.name = name;
         this.ingredientMap = ingredientMap;
-        this.cost = costOfpizza(this);
+        this.cost = costOfPizza(this);
     }
 
-    public Double costOfpizza(Recipe recipe) {
+    public Double costOfPizza(Recipe recipe) {
 
         List<String> listKeys = recipe.ingredientMap.keySet().stream().toList();
         Double sumOfCosts = 0.0;
         for (int i = 0; i < listKeys.size(); i++) {
-            Double costOfIngredientOnStorage = IngredientStorage.getData().get(i).getPrice();//цена ингридиента на складе (за какой вес???)
+            Double costOfIngredientOnStorage = IngredientStorage.getData().get(listKeys.get(i)).getPrice();//цена ингридиента на складе (за какой вес???)
             Double cosеOfIngredientInRecipe = ingredientMap.get(i) * costOfIngredientOnStorage;// = вес ингридиента * стоимость ингредиента на складе
             sumOfCosts = sumOfCosts + cosеOfIngredientInRecipe;
         }
