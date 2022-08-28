@@ -32,12 +32,12 @@ public class Recipe {
         this.id = UUID.randomUUID().toString();
         this.name = name;
         this.ingredientMap = ingredientMap;
-        this.cost = costOfPizza(this);
+        this.cost = costOfPizza();
     }
 
-    public Double costOfPizza(Recipe recipe) {
+    private Double costOfPizza() {
 
-        List<String> listKeys = recipe.ingredientMap.keySet().stream().toList();
+        List<String> listKeys = Recipe.this.ingredientMap.keySet().stream().toList();
         Double sumOfCosts = 0.0;
         for (int i = 0; i < listKeys.size(); i++) {
             Double costOfIngredientOnStorage = IngredientStorage.getData().get(listKeys.get(i)).getPrice();//цена ингридиента на складе (за какой вес???)
