@@ -27,18 +27,22 @@ public class RecipeGenerator {
     private static Random rnd = new Random();
 
     static public HashMap<String, Recipe> generateRecipeMap() {
+        HashMap<String, Recipe> recipes = new HashMap<>();
 
-        for (String recipeName:recipeNames) {
-
-
-
+        for (String recipeName : recipeNames) {
+            Recipe recipe = new Recipe(recipeName, generateMapOfIngredients());
+            recipes.put(recipe.getId(), recipe);
         }
-        HashMap<String, Integer> recipes = new HashMap<>();
+        return recipes;
+    }
+
+    static private HashMap<String, Integer> generateMapOfIngredients() {
+        HashMap<String, Integer> recipe = new HashMap<>();
 
         try {
-            recipes.put(IngredientStorage.getIdByName("Flour"), 100);
-            recipes.put(IngredientStorage.getIdByName("Yeasts"), 10);
-            recipes.put(IngredientStorage.getIdByName("Salt"), 5);
+            recipe.put(IngredientStorage.getIdByName("Flour"), 100);
+            recipe.put(IngredientStorage.getIdByName("Yeasts"), 10);
+            recipe.put(IngredientStorage.getIdByName("Salt"), 5);
         } catch (Exception ex) {
 
         }
@@ -49,9 +53,9 @@ public class RecipeGenerator {
         int randomIngridientAmount = rnd.nextInt(ingredientArrayList.size() / 2) + 1;
         for (int i = 0; i < randomIngridientAmount; i++) {
             int randomIngridient = rnd.nextInt(ingredientArrayList.size());
-            recipes.put(ingredientArrayList.get(randomIngridient).getId(), rnd.nextInt(150) + 50);
+            recipe.put(ingredientArrayList.get(randomIngridient).getId(), rnd.nextInt(150) + 50);
             ingredientArrayList.remove(randomIngridient);
         }
-         return recipes;
+        return recipe;
     }
 }
