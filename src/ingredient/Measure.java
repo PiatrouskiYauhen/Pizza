@@ -2,10 +2,8 @@ package ingredient;
 
 public enum Measure {
     GRAM("g.") {
-        public double ratioOfConversion(Measure measure) {
-            try {
-                Measure.validateParameter(measure);
-            } catch (Exception e){}
+        public double ratioOfConversion(Measure measure) throws Exception {
+            Measure.validateParameter(measure);
             double returnValue = 0d;
             switch (measure) {
                 case KILOGRAM,LITER: {
@@ -21,10 +19,8 @@ public enum Measure {
         }
     },
     KILOGRAM("kg.") {
-        public double ratioOfConversion(Measure measure) {
-            try {
-                Measure.validateParameter(measure);
-            } catch (Exception e) {}
+        public double ratioOfConversion(Measure measure) throws Exception {
+            Measure.validateParameter(measure);
             double returnValue = 0d;
             switch (measure) {
                 case KILOGRAM,PIECE,LITER: {
@@ -40,10 +36,8 @@ public enum Measure {
         }
     },
     LITER("l.") {
-        public double ratioOfConversion(Measure measure) {
-            try {
-                Measure.validateParameter(measure);
-            } catch (Exception e) {}
+        public double ratioOfConversion(Measure measure) throws Exception {
+            Measure.validateParameter(measure);
             double returnValue = 0d;
             switch (measure) {
                 case KILOGRAM,PIECE,LITER: {
@@ -59,18 +53,14 @@ public enum Measure {
         }
     },
     PIECE("p.") {
-                public double ratioOfConversion(Measure measure) {
-                    try {
-                        Measure.validateParameter(measure);
-                    } catch (Exception e) {}
+                public double ratioOfConversion(Measure measure) throws Exception {
+                    Measure.validateParameter(measure);
                     return 1d;
                 }
             },    //штуки
     MILLILITER("ml.") {
-        public double ratioOfConversion(Measure measure) {
-            try {
-                Measure.validateParameter(measure);
-            } catch (Exception e) {}
+        public double ratioOfConversion(Measure measure) throws Exception {
+            Measure.validateParameter(measure);
             double returnValue = 0d;
             switch (measure) {
                 case KILOGRAM,LITER: {
@@ -100,5 +90,5 @@ public enum Measure {
 
     //Метод принимает параметр measure - объект перечисления Measure, к которой будет конвертироваться текущая мера ингридиента.
     //Метод возвращает коэффициент корвертации между текущей мерой ингридиента и мерой, переданой в параметре.
-    public abstract double ratioOfConversion(Measure measure);
+    public abstract double ratioOfConversion(Measure measure) throws Exception;
 }
