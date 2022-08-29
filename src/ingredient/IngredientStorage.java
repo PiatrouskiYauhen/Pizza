@@ -3,14 +3,14 @@ package ingredient;
 import java.util.HashMap;
 
 public class IngredientStorage {
-    private HashMap<String, Ingredient> ingredientMap;
+    final private static HashMap<String, Ingredient> ingredientMap = IngredientGenerator.generateMap();
 
-    public IngredientStorage() {
-        this.ingredientMap = IngredientGenerator.generateMap();
+    public static HashMap<String, Ingredient> getData() {
+        return ingredientMap;
     }
 
-    public Ingredient getById(String id) throws Exception {
-        Ingredient ingredient = this.ingredientMap.get(id);
+    public static Ingredient getById(String id) throws Exception {
+        Ingredient ingredient = ingredientMap.get(id);
 
         if (ingredient == null) {
             throw new Exception("Ingredient with id " + id + " not found.");
