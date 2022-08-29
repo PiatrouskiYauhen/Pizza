@@ -32,7 +32,7 @@ public class IngredientService {
     }
 
     public static void validateNatural(int quantity) throws Exception {
-        if (quantity < 0) {
+        if (quantity <= 0) {
             throw new Exception("Enter a natural number");
         }
     }
