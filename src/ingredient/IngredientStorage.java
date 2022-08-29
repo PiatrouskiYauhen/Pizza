@@ -1,7 +1,9 @@
 
 package ingredient;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class IngredientStorage {
     final private static HashMap<String, Ingredient> ingredientMap = IngredientGenerator.generateMap();
@@ -18,5 +20,16 @@ public class IngredientStorage {
         }
 
         return ingredient;
+    }
+    public static String getIdByName(String name) throws Exception {
+        Ingredient ingredient = ingredientMap.values().stream()
+                .filter(ingr -> Objects.equals(ingr.getName(), name))
+                .findAny()
+                .orElse(null);
+
+        if (ingredient != null) {
+            return ingredient.getId();
+        } else throw new Exception("Ingredient " + name + " not found.");
+
     }
 }
