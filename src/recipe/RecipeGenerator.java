@@ -26,7 +26,7 @@ public class RecipeGenerator {
     };
     private static Random rnd = new Random();
 
-    static public HashMap<String, Recipe> generateRecipeMap() throws Exception {
+    static public HashMap<String, Recipe> generateRecipeMap() {
         HashMap<String, Recipe> recipes = new HashMap<>();
 
         for (String recipeName : recipeNames) {
