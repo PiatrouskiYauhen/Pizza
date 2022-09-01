@@ -1,12 +1,14 @@
 package client;
 
+import java.util.UUID;
+
 public class Client {
-    private String id;
+    private final String id;
     private String name;
     private String phoneNumber;
 
-    public Client(String id, String name, String phoneNumber) {
-        this.id = id;
+    public Client(String name, String phoneNumber) {
+        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.phoneNumber = phoneNumber;
     }
@@ -17,6 +19,10 @@ public class Client {
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPhoneNumber() {
