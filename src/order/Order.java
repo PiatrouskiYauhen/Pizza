@@ -58,7 +58,7 @@ public class Order {
         List<String> listKeys = this.recipes.keySet().stream().toList();
 
         for (int i = 0; i < listKeys.size(); i++) {
-            price += RecipeGenerator.generateRecipeMap().get(listKeys.get(i)).getCost()
+            price += RecipeStorage.getById(listKeys.get(i)).getCost()
                     * recipes.get(listKeys.get(i));
         }
         return price;
