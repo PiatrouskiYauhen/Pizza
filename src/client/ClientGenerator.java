@@ -1,5 +1,7 @@
 package client;
 
+import javax.print.attribute.HashAttributeSet;
+import java.util.HashMap;
 import java.util.Random;
 import java.util.UUID;
 
@@ -322,14 +324,25 @@ public class ClientGenerator {
             "Young"
     };
 
-    private static Random rnd = new Random();
+    private static final Random rnd = new Random();
 
-    public static Client generate() {
-        String id = UUID.randomUUID().toString();
-        String name = firstNames[rnd.nextInt(firstNames.length)] + " " + lastNames[rnd.nextInt(lastNames.length)];
-        Byte[] code = {25, 29, 33, 44};
-        String phoneNumber = "+375" + " " + code[rnd.nextInt(3)] + " " + (100 + rnd.nextInt(900)) + " " + (10 + rnd.nextInt(90)) + " " + (10 + rnd.nextInt(90));
-        return new Client(id, name, phoneNumber);
+    public static HashMap<String, Client> generateMap() {
+        HashMap<String, Client> clientMap = new HashMap<>();
+
+        for (int i = 0; i < 1000; i++) {
+            Client client = generate();
+
+            clientMap.put(client.getId(), client);
+        }
+
+        return clientMap;
     }
 
+    private static Client generate() {
+        String name = firstNames[rnd.nextInt(firstNames.length)] + " " + lastNames[rnd.nextInt(lastNames.length)];
+        byte[] code = {25, 29, 33, 44};
+        String phoneNumber = "+375 " + code[rnd.nextInt(3)] + " " + (100 + rnd.nextInt(900)) + " " + (10 + rnd.nextInt(90)) + " " + (10 + rnd.nextInt(90));
+
+        return new Client(name, phoneNumber);
+    }
 }
