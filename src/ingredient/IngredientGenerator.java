@@ -1,12 +1,10 @@
 package ingredient;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
 public class IngredientGenerator {
-    private final static String[] ingredientNames = {
+    private final static String[] IngredientNames = {
             "Flour",
             "Yeasts",
             "Salt",
@@ -25,20 +23,8 @@ public class IngredientGenerator {
 
     static public Ingredient generate() {
         return new Ingredient(UUID.randomUUID().toString(),
-                ingredientNames[rnd.nextInt(ingredientNames.length)],
+                IngredientNames[rnd.nextInt(IngredientNames.length)],
                 rnd.nextInt(100) + 5,
                 rnd.nextInt(100) + 1);
-    }
-
-    static public ArrayList<Ingredient> generateList() {
-        ArrayList<Ingredient> ingredientList = new ArrayList<>();
-
-        for (String ingredientName : ingredientNames) {
-            ingredientList.add(new Ingredient(ingredientName,
-                    rnd.nextInt(100) * 100 + 500,
-                    (int)((rnd.nextDouble(100) + 1) * 100) / 100d));
-        }
-
-        return ingredientList;
     }
 }
