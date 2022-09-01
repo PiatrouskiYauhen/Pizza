@@ -9,7 +9,11 @@ public class Ingredient {
     private double price;
 
     public Ingredient(String name, int weight, double price) {
-        this.id = UUID.randomUUID().toString();
+        this(UUID.randomUUID().toString(), name, weight, price);
+    }
+
+    public Ingredient(String id, String name, int weight, double price) {
+        this.id = id;
         this.name = name;
         this.weight = weight;
         this.price = price;
