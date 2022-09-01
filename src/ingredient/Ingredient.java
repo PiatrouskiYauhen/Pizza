@@ -5,14 +5,14 @@ import java.util.UUID;
 public class Ingredient {
     private final String id;
     private String name;
-    private int quantity;
+    private int qantity;
     private double price;
     public static final Measure measure = Measure.GRAM;
 
-    public Ingredient(String name, int quantity, double price) {
+    public Ingredient(String name, int qantity, double price) {
         this.id = UUID.randomUUID().toString();
         this.name = name;
-        this.quantity = quantity;
+        this.qantity = qantity;
         this.price = price;
     }
 
@@ -28,12 +28,12 @@ public class Ingredient {
         this.name = name;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getQantity() {
+        return qantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setQantity(int qantity) {
+        this.qantity = qantity;
     }
 
     public double getPrice() {
@@ -49,7 +49,7 @@ public class Ingredient {
         return "Ingredient{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", quantity=" + quantity + measure.name +
+                ", qantity=" + qantity + measure.name +
                 ", price=" + price +
                 '}';
     }
