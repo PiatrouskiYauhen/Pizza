@@ -25,14 +25,15 @@ public class IngredientGenerator {
         HashMap<String, Ingredient> ingredients = new HashMap<>();
 
         for (String ingredientName : ingredientNames) {
-            Ingredient ingredient = new Ingredient(ingredientName, generateQantity(), generatePrice());
+            Ingredient ingredient = new Ingredient(ingredientName, generateWeight(), generatePrice());
+
             ingredients.put(ingredient.getId(), ingredient);
         }
 
         return ingredients;
     }
 
-    static private int generateQantity() {
+    static private int generateWeight() {
         return rnd.nextInt(100) * 100 + 500;
     }
 
