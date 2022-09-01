@@ -1,10 +1,10 @@
 package ingredient;
 
+import java.util.HashMap;
 import java.util.Random;
-import java.util.UUID;
 
 public class IngredientGenerator {
-    private final static String[] IngredientNames = {
+    private static final String[] ingredientNames = {
             "Flour",
             "Yeasts",
             "Salt",
@@ -19,12 +19,25 @@ public class IngredientGenerator {
             "Pepper",
             "Champignons"
     };
-    private static Random rnd = new Random();
+    private static final Random rnd = new Random();
 
-    static public Ingredient generate() {
-        return new Ingredient(UUID.randomUUID().toString(),
-                IngredientNames[rnd.nextInt(IngredientNames.length)],
-                rnd.nextInt(100) + 5,
-                rnd.nextInt(100) + 1);
+    static public HashMap<String, Ingredient> generateMap() {
+        HashMap<String, Ingredient> ingredients = new HashMap<>();
+
+        for (String ingredientName : ingredientNames) {
+            Ingredient ingredient = new Ingredient(ingredientName, generateWeight(), generatePrice());
+
+            ingredients.put(ingredient.getId(), ingredient);
+        }
+
+        return ingredients;
+    }
+
+    static private int generateWeight() {
+        return rnd.nextInt(100) * 100 + 500;
+    }
+
+    static private double generatePrice() {
+        return (int)((rnd.nextDouble(100) + 1) * 100) / 100d;
     }
 }
