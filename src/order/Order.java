@@ -1,7 +1,6 @@
 package order;
 
-import ingredient.IngredientStorage;
-import recipe.RecipeGenerator;
+import recipe.RecipeStorage;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -62,5 +61,17 @@ public class Order {
                     * recipes.get(listKeys.get(i));
         }
         return price;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id='" + id + '\'' +
+                ", date=" + date +
+                ", clientId='" + clientId + '\'' +
+                ", orderStatus=" + orderStatus +
+                ", recipes=" + recipes +
+                ", price=" + price +
+                '}';
     }
 }
