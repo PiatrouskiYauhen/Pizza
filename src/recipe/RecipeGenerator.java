@@ -46,7 +46,7 @@ public class RecipeGenerator {
         } catch (Exception ex) {
 
         }
-        ArrayList<Ingredient> ingredientArrayList = (ArrayList<Ingredient>) IngredientStorage.getData().values();
+        ArrayList<Ingredient> ingredientArrayList = new ArrayList<>(IngredientStorage.getData().values().stream().toList());
         ingredientArrayList.removeIf(ingredient -> ingredient.getName().equals("Flour"));
         ingredientArrayList.removeIf(ingredient -> ingredient.getName().equals("Yeasts"));
         ingredientArrayList.removeIf(ingredient -> ingredient.getName().equals("Salt"));

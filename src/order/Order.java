@@ -63,4 +63,16 @@ public class Order {
         }
         return price;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id='" + id + '\'' +
+                ", date=" + date +
+                ", clientId='" + clientId + '\'' +
+                ", orderStatus=" + orderStatus +
+                ", recipes=" + recipes +
+                ", price=" + price +
+                '}';
+    }
 }
