@@ -3,7 +3,10 @@ package recipe;
 import ingredient.Ingredient;
 import ingredient.IngredientStorage;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Random;
+import java.util.UUID;
 
 public class RecipeGenerator {
     private final static String[] recipeNames = {
