@@ -1,15 +1,10 @@
 package recipe;
-
-import java.util.HashMap;
-import java.util.Map;
-
+import ingredient.IngredientStorage;
 public class RecipeService {
-    public void recipeIsReadyValidation(Recipe recipe){
-        Map<String,Integer> ingredientsOfRecipe = recipe.getIngredientMap();
-        ingredientsOfRecipe.entrySet().stream(entry -> {
+    public static boolean recipeIsReadyValidation(Recipe recipe) {
 
-        });
-
-
+        return recipe.getIngredientMap().entrySet().stream()
+                .allMatch
+                         (entry -> entry.getValue() < IngredientStorage.getData().get(entry.getKey()).getQuantity());
     }
 }
